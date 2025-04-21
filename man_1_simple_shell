@@ -1,0 +1,84 @@
+.TH SIMPLE_SHELL 1 "April 2025" "v1.0" "User Commands Manual"
+
+.SH NAME
+simple_shell \- a basic UNIX command-line interpreter written in C
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+.B simple_shell
+is a simple shell written in C, designed to read user input, parse it, and execute commands.
+
+It supports both interactive and non-interactive modes, allowing users to run built-in commands or any executable available in the system's PATH.
+
+.SH FEATURES
+.TP
+\Interactive Mode\
+Displays a prompt and waits for user input.
+
+.TP
+\Command Execution\
+Executes both built-in and external commands found in the system PATH.
+
+.TP
+\Built-in Commands\
+- \exit\: Exits the shell.  
+- \env\: Prints the current environment variables.  
+- \cd [dir]\: Changes the current directory to \fIdir\.
+
+.SH USAGE
+Interactive usage:
+
+.EX
+$ ./hsh
+$ ls -l
+$ cd ..
+$ exit
+.EE
+
+Non-interactive usage:
+
+.EX
+$ echo "ls -l" | ./hsh
+.EE
+
+.SH FILES
+.TP
+\_strcmp.c\
+Custom implementation of the strcmp function.
+
+.TP
+\tokenize.c\
+Splits user input into an array of arguments.
+
+.TP
+\execute.c\
+Handles execution of commands, whether built-in or external.
+
+.TP
+\find_command_in_path.c\
+Searches for commands inside the directories listed in the PATH environment variable.
+
+.TP
+\prompt.c\
+Displays the shell prompt.
+
+.TP
+\shell_loop.c\
+Contains the main loop that handles reading and executing commands.
+
+.TP
+\print_cd.c\
+Handles the cd built-in command.
+
+.TP
+\print_env.c\
+Implements the env built-in command.
+
+.TP
+\shell.h\
+Header file containing function prototypes and macros used throughout the project.
+
+.SH AUTHORS
+Written by Ezequiel Juvencio as part of the Simple Shell project.
