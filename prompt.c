@@ -1,11 +1,14 @@
 #include "shell.h"
 
-/*
- *
- * displya_prompt - Muestra el promt "$ "
- *
+/**
+ * display_prompt - Muestra el prompt del shell si está en modo interactiv.
  */
 void display_prompt(void)
 {
-	write(STDOUT_FILENO, "$ ", 2);
+	/* Verifica si la entrada estándar es un terminal (modo interactivo)*/
+	if (isatty(STDIN_FILENO))
+	{
+		/* Escribe el prompt "$ " al usuario */
+		write(STDOUT_FILENO, "$ ", 2);
+	}
 }

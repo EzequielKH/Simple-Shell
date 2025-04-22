@@ -5,41 +5,59 @@
  * @command: El comando a buscar.
  *
  * Return: La ruta completa del comando si se encuentra, NULL si no.
+ *
+ * Descripción: Esta función busca un comando dentro de los directorios
+ * especificados en la variable de entorno PATH. Si el comando se encuentra
+ * en uno de esos directorios, se retorna la ruta completa del comando.
+ * Si no se encuentra, la función retorna NULL.
  */
 char *find_command_in_path(char *command)
 {
-	char *path = getenv("PATH");  /*Obtiene el PATH del entorno*/
-	char *dir;
-	char *full_path;
-	char *token;
+	/* Obtener la variable PATH desde el entorno */
+	char *path_env = getenv("PATH");
+	char *path_copy, *dir, *full_path;
 
-	if (!path)
+	if (!path_env)
+		/* Si no se encuentra PATH en el entorno, retornamos NULL */
 		return (NULL);
-	/*Clonamos PATH para no modificar el original*/
-	path = strdup(path);
-	if (!path)
-		return(NULL);
 
-	token = strtok(path, ":");
-	while (token)
+	/* Copiamos el contenido de PATH para no modificar la original */
+	path_copy = strdup(path_env);
+	if (!path_copy)
+		/* Verificamos si la duplicación fue exitosa */
+		return (NULL);
+
+	/* Dividimos el PATH usando ':' como delimitador para obtener cada directorio */
+	dir = strtok(path_copy, ":");
+	while (dir)
 	{
-		dir = token;
+		/* Reservamos memoria para la ruta completa */
 		full_path = malloc(strlen(dir) + strlen(command) + 2);
 		if (!full_path)
+			/* Verificamos si la reserva de memoria fue exitosa */
 		{
-			free(path);
-			return(NULL);
+			free(path_copy);
+			return (NULL);
 		}
+
+		/* Construimos la ruta completa concatenando el directorio y el comando */
 		sprintf(full_path, "%s/%s", dir, command);
-		if (access(full_path, F_OK) == 0)
+
+		/* Verificamos si el archivo existe y tiene permisos de ejecución */
+		if (access(full_path, X_OK) == 0)
 		{
-			free(path);
+			free(path_copy);
 			return (full_path);
+			/* Ruta encontrada, retornamos la ruta completa */
 		}
 		free(full_path);
-		token = strtok(NULL, ":");
+		/* Liberamos memoria si no se encontró el comando */
+		dir = strtok(NULL, ":");
+		/* Continuamos con el siguiente directorio */
 	}
 
-	free(path);
+	free(path_copy);
+	/* Liberamos la memoria duplicada de PATH */
 	return (NULL);
+	/* Si no se encontró el comando, retornamos NULL */
 }
