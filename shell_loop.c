@@ -26,17 +26,17 @@ void shell_loop(void)
 		/* Si ocurre error o Ctrl+D */
 		{
 			free(line); 
-			/* Liberamos la líne*/
+			/* Liberamos la lína*/
 			if (isatty(STDIN_FILENO))
 			/* Si estamos en modo interactivo*/
 				write(STDOUT_FILENO, "\n", 1);
-				/* Imprime salto de lín*/
+				/* Imprime salto de líea*/
 			break; 
 			/* Sale del bucle*/
 		}
 
 		args = tokenize_input(line);
-		/* Divide la línea en argument*/
+		/* Divide la línea en argumen*/
 
 		if (args[0] != NULL)
 		/* Si hay al menos un comando*/
@@ -53,7 +53,7 @@ void shell_loop(void)
 			/* Si el comando es "env"*/
 			{
 				print_env();
-				/* Imprime las variables de entorno */
+				/* Imprime las variables de entorno*/
 			}
 			else if (strcmp(args[0], "cd") == 0)
 			/* Si el comando es "cd"*/
@@ -74,5 +74,5 @@ void shell_loop(void)
 	}
 
 	free(line);
-	/* Libera la línea al salir del bule*/
+	/* Libera la línea al salir del bcle*/
 }
