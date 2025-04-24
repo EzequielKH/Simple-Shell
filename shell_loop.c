@@ -23,56 +23,56 @@ void shell_loop(void)
 		nread = getline(&line, &len, stdin);
 		/* Lee la entrada del usuario */
 		if (nread == -1)
-		/* Si ocurre error o EOF (Ctrl+D) */
+		/* Si ocurre error o Ctrl+D */
 		{
 			free(line); 
-			/* Liberamos la línea leí*/
+			/* Liberamos la líne*/
 			if (isatty(STDIN_FILENO))
-			/* Si estamos en modo interactivo */
+			/* Si estamos en modo interactivo*/
 				write(STDOUT_FILENO, "\n", 1);
-				/* Imprime salto de líne*/
+				/* Imprime salto de lín*/
 			break; 
-			/* Sale del bucle */
+			/* Sale del bucle*/
 		}
 
 		args = tokenize_input(line);
-		/* Divide la línea en argumento*/
+		/* Divide la línea en argument*/
 
 		if (args[0] != NULL)
-		/* Si hay al menos un comando */
+		/* Si hay al menos un comando*/
 		{
 			if (strcmp(args[0], "exit") == 0)
-			/* Si el comando es "exit" */
+			/* Si el comando es "exit"*/
 			{
 				free(args);
-				/* Libera los argumentos */
+				/* Libera los argumentos*/
 				break;
-				/* Sale del shell */
+				/* Sale del shell*/
 			}
 			else if (strcmp(args[0], "env") == 0)
-			/* Si el comando es "env" */
+			/* Si el comando es "env"*/
 			{
 				print_env();
 				/* Imprime las variables de entorno */
 			}
 			else if (strcmp(args[0], "cd") == 0)
-			/* Si el comando es "cd" */
+			/* Si el comando es "cd"*/
 			{
 				builtin_cd(args);
-				/* Cambia de directorio */
+				/* Cambia de directorio*/
 			}
 			else
-			/* Si es un comando externo */
+			/* Si es un comando externo*/
 			{
 				execute_command(args);
-				/* Ejecuta el comando */
+				/* Ejecuta el comando*/
 			}
 		}
 
 		free(args);
-		/* Libera los argumentos al final del ciclo */
+		/* Libera los argumentos al final del ciclo*/
 	}
 
 	free(line);
-	/* Libera la línea al salir del bucl*/
+	/* Libera la línea al salir del bule*/
 }

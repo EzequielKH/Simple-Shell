@@ -2,7 +2,7 @@
 
 ## Descripcion
 
-Este proyecto consiste en la creaci√≥n de una shell simple, similar a 'sh', capaz de ler entradas del usuario, interpretar comandos y ejecutarlos en un entorno UNIX. El objetivo es replicar algunas de las funcionalidades ba√sicas de una shell utilzando llamadas al sistema de C standar.c
+Este proyecto consiste en la creacio≥n de una shell simpl, capaz de ler entradas del usuario, interpretar comandos y ejecutarlos enun entorno UNIX. El objetivo es replicar algunas de las funcionalidades ba√sicas de una shell utilzando llmada al sistema de estandar
 
 -----------------------------
 
@@ -74,15 +74,14 @@ README.md
 # Este archivo
 
 man_1_simple_shell
-# P√°gina de manual para la sell
+# Pagina de manual para la shell
 
 -----------------------------
 
-## Uso
+###Uso
 
-### Modo interactivo
+## Modo interactivo
 
-```bash
 $ ./hsh
 $ ls -l
 $ pwd
@@ -104,11 +103,11 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 ------------------------------
 
-Autor [Ezequiel Juvencio≠ - GitHub EzequielKH
+###Autor [Ezequiel Juvencio≠ - GitHub EzequielKH
 
 ------------------------------
 
-Recursos
+##Recursos
 
 UNIX Programming Concepts
 
@@ -122,4 +121,4 @@ UNIX Programming Concepts
 
 -----------------------------
 
-Proyecto desarrollado como parte del programa Holberton School.
+###Proyecto desarrollado como parte del programa Holberton School.
