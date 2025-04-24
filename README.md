@@ -1,8 +1,7 @@
 # Simple-Shell
 
 ## Descripcion
-
-Este proyecto consiste en la creacio≥n de una shell simpl, capaz de ler entradas del usuario, interpretar comandos y ejecutarlos enun entorno UNIX. El objetivo es replicar algunas de las funcionalidades ba√sicas de una shell utilzando llmada al sistema de estandar
+Este proyecto consiste en la creacion de una shell simple, capaz de leer entradas de usuario, interpretar comandos y ejecutarlos en un entorno UNIX. El objetivo es replicar algunas de las funcionalidades basicas de una shell utilizando llamadas al sistema de C estandar.
 
 -----------------------------
 
@@ -26,9 +25,9 @@ Este proyecto consiste en la creacio≥n de una shell simpl, capaz de ler entradas
 - Manejo de procesos con `fork`, `execve`, `wait`
 - Lectura de entrada con `getline`
 - Manejo de cadenas y arrays en C
-- Manejo de memoria din√°mic
-- Manejo de errores y se√±ale
-- Programaci√≥n modular en 
+- Manejo de memoria din√°mia
+- Manejo de errores y se√±als
+- Programaci√≥n modular enC
 
 -----------------------------
 
@@ -42,13 +41,13 @@ Este proyecto consiste en la creacio≥n de una shell simpl, capaz de ler entradas
 
 ## Estructura del proyecto
 
-_strmp.c 
+_strcmp.c
 #funcion personalizada para comparar cadenas
 
-shell.h 
+shell.h
 # Header principal
 
-shell_loop.c 
+shell_loop.c
 # Bucle principal de la shell
 # Comando interno "exit"
 
@@ -103,7 +102,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 ------------------------------
 
-###Autor [Ezequiel Juvencio≠ - GitHub EzequielKH
+###Author [Ezequiel Juvencio]≠ - GitHub EzequielH
 
 ------------------------------
 
